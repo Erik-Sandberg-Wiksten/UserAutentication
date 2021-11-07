@@ -1,0 +1,13 @@
+
+
+# Get current user info. Returns list of last 10 logins
+GET http://localhost:8080/users/current
+Authorization: Bearer <Your token you received from an successful login call>
+
+### Register a new user with username and password
+POST http://localhost:8080/public/users/register?username=<Your name>&password=<Secret password>
+
+### Login the user with username and password. Returns a token
+POST http://localhost:8080/public/users/login?username=<Your name>&password=<Secret password>
+
+
