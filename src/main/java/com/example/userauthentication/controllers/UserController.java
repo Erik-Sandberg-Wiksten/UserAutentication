@@ -1,7 +1,7 @@
 package com.example.userauthentication.controllers;
 
 import com.example.userauthentication.user.User;
-import com.example.userauthentication.user.UserAuthenticationService;
+import com.example.userauthentication.security.UserAuthenticationService;
 import com.example.userauthentication.user.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;

@@ -7,11 +7,11 @@ import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class MapDbUserLoginDataService implements UserLoginDataService {
+public class UserLoginDataServiceImpl implements UserLoginDataService {
 
     private UserRepository repository;
 
-    public MapDbUserLoginDataService(UserRepository repository) {
+    public UserLoginDataServiceImpl(UserRepository repository) {
         this.repository = repository;
     }
 
@@ -41,6 +41,6 @@ public class MapDbUserLoginDataService implements UserLoginDataService {
                 .limit(10)
                 .collect(Collectors.toList());
 
-        return Optional.ofNullable(lastTenUserLogins);
+        return Optional.of(lastTenUserLogins);
     }
 }

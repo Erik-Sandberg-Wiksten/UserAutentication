@@ -1,4 +1,6 @@
-package com.example.userauthentication.user;
+package com.example.userauthentication.security;
+
+import com.example.userauthentication.user.*;
 
 import java.util.Optional;
 import java.util.UUID;
@@ -17,11 +19,12 @@ public class UUIDAuthenticationService  implements UserAuthenticationService {
     public Optional<String> login(final String username, final String password) {
         final String uuid = UUID.randomUUID().toString();
 
-        Optional user = users.find(username)
+        boolean userIsUnknown = users.find(username)
                 .map(User::getPassword)
-                .filter(password::equals);
+                .filter(password::equals)
+                .isEmpty();
 
-        if(user.isEmpty()){
+        if(userIsUnknown){
             return Optional.empty();
         }
         userLoginData.saveLogin(uuid, username);
@@ -34,10 +37,5 @@ public class UUIDAuthenticationService  implements UserAuthenticationService {
         return userLoginData.find(token)
                 .map(UserLoginData::getUsername)
                 .flatMap(users::find);
-    }
-
-    @Override
-    public void logout(final User user) {
-        throw new UnsupportedOperationException("Not allowed");
     }
 }

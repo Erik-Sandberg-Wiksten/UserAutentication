@@ -1,7 +1,7 @@
 package com.example.userauthentication.controllers;
 
 import com.example.userauthentication.user.User;
-import com.example.userauthentication.user.UserAuthenticationService;
+import com.example.userauthentication.security.UserAuthenticationService;
 import com.example.userauthentication.user.UserLoginData;
 import com.example.userauthentication.user.UserLoginDataService;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -27,16 +27,8 @@ public class UserOperationController {
     @GetMapping("/current")
     List<UserLoginData> getCurrent(@AuthenticationPrincipal final User user) {
         String username = user.getUsername();
-        List<UserLoginData> logins = userLoginDataService.getLastLogins(username).orElse(Collections.emptyList());
 
-        return logins;
+        return userLoginDataService.getLastLogins(username).orElse(Collections.emptyList());
     }
-
-    @GetMapping("/logout")
-    boolean logout(@AuthenticationPrincipal final User user) {
-        authentication.logout(user);
-        return true;
-    }
-
 
 }

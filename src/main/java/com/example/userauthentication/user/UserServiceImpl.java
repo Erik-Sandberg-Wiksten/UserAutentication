@@ -5,11 +5,11 @@ import com.example.userauthentication.security.UserAlreadyExistAuthenticationExc
 
 import java.util.Optional;
 
-public class MapDbUserService implements UserService{
+public class UserServiceImpl implements UserService{
 
     private UserRepository repository;
 
-    public MapDbUserService(UserRepository repository) {
+    public UserServiceImpl(UserRepository repository) {
         this.repository = repository;
     }
 

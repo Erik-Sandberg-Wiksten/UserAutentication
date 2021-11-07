@@ -4,6 +4,8 @@ import com.example.userauthentication.repository.DbConnector;
 import com.example.userauthentication.repository.MapDbConnector;
 import com.example.userauthentication.repository.MapDbRepository;
 import com.example.userauthentication.repository.UserRepository;
+import com.example.userauthentication.security.UUIDAuthenticationService;
+import com.example.userauthentication.security.UserAuthenticationService;
 import com.example.userauthentication.user.*;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,7 +20,7 @@ public class AppConfiguration {
 
     @Bean
     public UserService userService() {
-        return new MapDbUserService(userRepository());
+        return new UserServiceImpl(userRepository());
     }
 
     @Bean
@@ -28,7 +30,7 @@ public class AppConfiguration {
 
     @Bean
     public UserLoginDataService userDataService() {
-        return new MapDbUserLoginDataService(userRepository());
+        return new UserLoginDataServiceImpl(userRepository());
     }
 
     @Bean
