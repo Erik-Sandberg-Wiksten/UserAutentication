@@ -1,4 +1,4 @@
-# Trafiklab
+# User Authentication
 Hey and welcome to my small spring boot app for token secured REST endpoints.
 There is the possibility to create and login user as well as get last logins
 
