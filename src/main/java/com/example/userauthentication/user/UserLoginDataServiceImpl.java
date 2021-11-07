@@ -1,6 +1,5 @@
 package com.example.userauthentication.user;
 
-import com.example.userauthentication.repository.DbConnector;
 import com.example.userauthentication.repository.UserRepository;
 import java.util.Comparator;
 import java.util.List;

@@ -1,6 +1,6 @@
 package com.example.userauthentication;
 
-import com.example.userauthentication.security.UserAlreadyExistAuthenticationException;
+import com.example.userauthentication.user.UserAlreadyExistAuthenticationException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

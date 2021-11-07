@@ -1,7 +1,6 @@
 package com.example.userauthentication.user;
 
 import com.example.userauthentication.repository.UserRepository;
-import com.example.userauthentication.security.UserAlreadyExistAuthenticationException;
 
 import java.util.Optional;
 

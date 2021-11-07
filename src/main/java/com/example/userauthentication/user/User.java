@@ -1,11 +1,9 @@
 package com.example.userauthentication.user;
 
-import com.fasterxml.jackson.annotation.JsonCreator;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
@@ -13,14 +11,13 @@ import java.util.Objects;
 import static java.util.Objects.requireNonNull;
 
 public class User implements UserDetails {
+    @Serial
     private static final long serialVersionUID = 1;
 
     private String username;
     private String password;
 
-    @JsonCreator
-    public User(@JsonProperty("username") final String username,
-         @JsonProperty("password") final String password) {
+    public User(String username, String password) {
         super();
         this.username = requireNonNull(username);
         this.password = requireNonNull(password);
